@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Botões Sim e Não</title>
+	<style>
+		body {
+			background-color: #f9f9f9;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			text-align: center;
+			color: #333;
+			margin-top: 50px;
+		}
+
+		#sim, #nao {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 20px;
+			margin: 20px;
+			cursor: pointer;
+			transition: all 0.5s ease-in-out;
+			transition-property: background-color, transform;
+			border-radius: 50px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		#sim:hover {
+			background-color: #3e8e41;
+		}
+
+		#nao:hover {
+			background-color: #f44336;
+			transform: scale(1.1);
+		}
+
+		#mensagem {
+			display: none;
+			text-align: center;
+			font-size: 24px;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h1>botoes</h1>
+	<button id="sim">Sim</button>
+	<button id="nao">Não</button>
+	<p id="mensagem">Obrigado, eu te amo &lt;3</p>
+
+	<script>
+		var naoButton = document.getElementById("nao");
+		var screenWidth = window.innerWidth;
+		var screenHeight = window.innerHeight;
+
+		function moveButton() {
+			var newTop = Math.floor(Math.random() * (screenHeight - 100)) + "px";
+			var newLeft = Math.floor(Math.random() * (screenWidth - 200)) + "px";
+			naoButton.style.top = newTop;
+			naoButton.style.left = newLeft;
+		}
+
+		naoButton.addEventListener("mouseover", function() {
+			moveButton();
+		});
+
+		var simButton = document.getElementById("sim");
+		simButton.addEventListener("click", function() {
+			var mensagem = document.getElementById("mensagem");
+			mensagem.style.display = "block";
+		});
+	</script>
+</body>
+</html>
